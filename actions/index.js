@@ -31,3 +31,19 @@ export function marketFetchStart() {
 export function marketFetchFinish() {
   return { type: types.MARKET_FETCH_FINISH,  isFetching:false}
 }
+
+export function addMarket(marketName, isShow=true) {
+  return { type: types.ADD_MARKET,  marketName, isShow}
+}
+
+export function deleteMarket(marketName) {
+  return { type: types.DELETE_MARKET,  marketName}
+}
+
+export function showMarket(marketName) {
+  return { type: types.DELETE_MARKET,  marketName, isShow:true}
+}
+
+export function hideMarket(marketName) {
+  return { type: types.DELETE_MARKET,  marketName, isShow:false}
+}

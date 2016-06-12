@@ -8,7 +8,17 @@ describe('market reducer', () => {
       market(undefined, {})
     ).toEqual(
       {
-        isFetching: false
+        isFetching: false,
+        list:{
+        	'btccny':{
+        		name: 'btccny',
+        		show: true
+        	},
+        	'dgdcny':{
+        		name: 'dgdcny',
+        		show: false
+        	}
+        }
       }
     )
   })
@@ -21,7 +31,17 @@ describe('market reducer', () => {
       })
     ).toEqual(
       {
-        isFetching: true
+        isFetching: true,
+        list:{
+        	'btccny':{
+        		name: 'btccny',
+        		show: true
+        	},
+        	'dgdcny':{
+        		name: 'dgdcny',
+        		show: false
+        	}
+        }        
       }
     )
     
@@ -32,7 +52,17 @@ describe('market reducer', () => {
       })
     ).toEqual(
       {
-        isFetching: false
+        isFetching: false,
+        list:{
+        	'btccny':{
+        		name: 'btccny',
+        		show: true
+        	},
+        	'dgdcny':{
+        		name: 'dgdcny',
+        		show: false
+        	}
+        }        
       }
     )
 
@@ -43,7 +73,17 @@ describe('market reducer', () => {
       })
     ).toEqual(
       {
-        isFetching: false
+        isFetching: false,
+        list:{
+        	'btccny':{
+        		name: 'btccny',
+        		show: true
+        	},
+        	'dgdcny':{
+        		name: 'dgdcny',
+        		show: false
+        	}
+        }        
       }
     )    
   })
