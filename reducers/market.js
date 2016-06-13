@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { MARKET_FETCH_START, MARKET_FETCH_FINISH } from '../constants/ActionTypes'
 import list from '../reducers/marketList'
+import detail from '../reducers/marketDetail'
 
 const initialState = false;
 
@@ -17,7 +18,8 @@ function isFetching(state = initialState, action) {
 
 const market = combineReducers({
   isFetching,
-  list
+  list,
+  detail
 })
 
 export default market

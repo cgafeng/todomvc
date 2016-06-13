@@ -22,4 +22,27 @@ describe('marketList actions', () => {
       isShow: true
     })    
   })
+  
+  it('deleteMarket should create DELETE_MARKET action', () => {
+    expect(actions.deleteMarket('ethcny')).toEqual({
+      type: types.DELETE_MARKET,
+      marketName: 'ethcny'
+    })
+  })
+  
+  it('showMarket should create SHOW_MARKET action', () => {
+    expect(actions.showMarket('ethcny')).toEqual({
+      type: types.SHOW_MARKET,
+      marketName: 'ethcny',
+      isShow: true
+    })
+  })
+  
+  it('hideMarket should create HIDE_MARKET action', () => {
+    expect(actions.hideMarket('ethcny')).toEqual({
+      type: types.HIDE_MARKET,
+      marketName: 'ethcny',
+      isShow: false
+    })
+  })  
 })

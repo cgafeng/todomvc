@@ -8,6 +8,7 @@ describe('market reducer', () => {
       market(undefined, {})
     ).toEqual(
       {
+        detail: {},
         isFetching: false,
         list:{
         	'btccny':{
@@ -31,6 +32,7 @@ describe('market reducer', () => {
       })
     ).toEqual(
       {
+        detail: {},
         isFetching: true,
         list:{
         	'btccny':{
@@ -52,6 +54,7 @@ describe('market reducer', () => {
       })
     ).toEqual(
       {
+        detail: {},
         isFetching: false,
         list:{
         	'btccny':{
@@ -73,6 +76,7 @@ describe('market reducer', () => {
       })
     ).toEqual(
       {
+        detail: {},
         isFetching: false,
         list:{
         	'btccny':{

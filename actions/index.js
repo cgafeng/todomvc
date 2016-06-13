@@ -41,9 +41,35 @@ export function deleteMarket(marketName) {
 }
 
 export function showMarket(marketName) {
-  return { type: types.DELETE_MARKET,  marketName, isShow:true}
+  return { type: types.SHOW_MARKET,  marketName, isShow:true}
 }
 
 export function hideMarket(marketName) {
-  return { type: types.DELETE_MARKET,  marketName, isShow:false}
+  return { type: types.HIDE_MARKET,  marketName, isShow:false}
+}
+
+export function requestMarketsDetail(markets) {
+  return { type: types.REQUEST_MARKETS_DETAIL,  markets}
+}
+
+export function updateMarket(marketName, json) {
+  return { type: types.UPDATE_MARKET,  marketName, json}
+}
+
+export function fetchMarketsDetail(markets){
+  return dispatch =>{
+    dispatch(marketFetchStart());
+    let fetchs = [];
+    markets.map(market =>{
+      let url = 'https://yunbi.com//api/v2/tickers/'+ market + '.json';
+      let p = fetch(url)
+      .then(response => response.json())
+      .then(json => dispatch(updateMarket(market,json)) )
+      .catch(err => console.log(err))
+      
+      fetchs.push(p);
+    });
+    //dispatch(marketFetchFinish());
+    return fetchs;
+  }
 }

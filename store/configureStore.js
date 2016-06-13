@@ -1,8 +1,12 @@
-import { createStore } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
 import rootReducer from '../reducers'
+import {fetchMarketsDetail} from '../actions'
 
 export default function configureStore(preloadedState) {
-  const store = createStore(rootReducer, preloadedState)
+  const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
+  const store = createStoreWithMiddleware(rootReducer, preloadedState);
+  store.dispatch(fetchMarketsDetail(['btccny', 'ethcny']))
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
