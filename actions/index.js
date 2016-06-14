@@ -63,11 +63,29 @@ export function fetchMarketsDetail(markets){
       let url = 'https://yunbi.com//api/v2/tickers/'+ market + '.json';
       return fetch(url)
         .then(response => response.json())
-        .then(json => dispatch(updateMarket(market,json)) )
+        .then(json => dispatch(updateMarket(market, json)) )
         .catch(err => console.log(err))
       
     });
     dispatch(marketFetchFinish());
     return Promise.all(fetchs);
+  }
+}
+
+export function requestMarketOrderBook(market) {
+  return { type: types.REQUEST_MARKET_ORDERBOOK,  market}
+}
+
+export function updateMarketOrderBook(marketName, json) {
+  return { type: types.UPDATE_MARKET_ORDERBOOK,  marketName, json}
+}
+
+export function fetchMarketOrderBook(market){
+  return dispatch =>{
+    let url = 'https://yunbi.com//api/v2/order_book.json?market='+ market + '&asks_limit=5&bids_limit=5';
+    return fetch(url)
+      .then(response => response.json())
+      .then(json => dispatch(updateMarketOrderBook(market, json)) )
+      .catch(err => console.log(err))
   }
 }
