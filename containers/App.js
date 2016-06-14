@@ -6,12 +6,20 @@ import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    setInterval(()=>{
+      const { actions } = this.props
+      actions.fetchMarketsDetail(['btccny', 'ethcny', 'daocny', 'sccny'])
+    }, 30 * 1000);
+  }
+    
   render() {
-    const { todos, actions } = this.props
+    const { todos, actions, market } = this.props
     return (
       <div>
         <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+        <MainSection todos={todos} market={market} actions={actions} />
       </div>
     )
   }
@@ -24,7 +32,8 @@ App.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state.todos,
+    market: state.market
   }
 }
 

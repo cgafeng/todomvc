@@ -6,7 +6,6 @@ import {fetchMarketsDetail} from '../actions'
 export default function configureStore(preloadedState) {
   const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
   const store = createStoreWithMiddleware(rootReducer, preloadedState);
-  store.dispatch(fetchMarketsDetail(['btccny', 'ethcny']))
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

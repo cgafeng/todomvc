@@ -69,7 +69,7 @@ export function fetchMarketsDetail(markets){
       
       fetchs.push(p);
     });
-    //dispatch(marketFetchFinish());
+    dispatch(marketFetchFinish());
     return fetchs;
   }
 }
