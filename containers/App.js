@@ -4,11 +4,17 @@ import { connect } from 'react-redux'
 import Header from '../components/Header'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
+import echarts from '../tools/echarts.min.js'
 
 class App extends Component {
   constructor(props) {
     super(props)
     setInterval(this.updateMarket.bind(this), 30 * 1000);
+  }
+  
+  componentDidMount(){
+    let echartObj = echarts.init(this.refs.echartsDom);
+    echartObj.showLoading();    
   }
   
   updateMarket(){
@@ -17,11 +23,14 @@ class App extends Component {
   }
     
   render() {
-    const { todos, actions, market } = this.props
+    const { todos, actions, market } = this.props;
+    let style = {height: '300px'};
     return (
       <div>
         <Header addTodo={actions.addTodo} />
         <MainSection todos={todos} market={market} actions={actions} />
+        <div ref='echartsDom' style={style}>
+        </div>
       </div>
     )
   }
