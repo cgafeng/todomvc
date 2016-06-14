@@ -8,10 +8,12 @@ import * as TodoActions from '../actions'
 class App extends Component {
   constructor(props) {
     super(props)
-    setInterval(()=>{
+    setInterval(this.updateMarket.bind(this), 30 * 1000);
+  }
+  
+  updateMarket(){
       const { actions } = this.props
       actions.fetchMarketsDetail(['btccny', 'ethcny', 'daocny', 'sccny'])
-    }, 30 * 1000);
   }
     
   render() {

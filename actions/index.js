@@ -59,17 +59,15 @@ export function updateMarket(marketName, json) {
 export function fetchMarketsDetail(markets){
   return dispatch =>{
     dispatch(marketFetchStart());
-    let fetchs = [];
-    markets.map(market =>{
+    let fetchs = markets.map(market =>{
       let url = 'https://yunbi.com//api/v2/tickers/'+ market + '.json';
-      let p = fetch(url)
-      .then(response => response.json())
-      .then(json => dispatch(updateMarket(market,json)) )
-      .catch(err => console.log(err))
+      return fetch(url)
+        .then(response => response.json())
+        .then(json => dispatch(updateMarket(market,json)) )
+        .catch(err => console.log(err))
       
-      fetchs.push(p);
     });
     dispatch(marketFetchFinish());
-    return fetchs;
+    return Promise.all(fetchs);
   }
 }
