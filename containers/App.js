@@ -20,6 +20,7 @@ class App extends Component {
   updateMarket(){
       const { actions } = this.props
       actions.fetchMarketsDetail(['btccny', 'ethcny', 'daocny', 'sccny'])
+      actions.fetchMarketOrderBook('btccny')
   }
     
   render() {

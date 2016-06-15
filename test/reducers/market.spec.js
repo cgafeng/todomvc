@@ -9,6 +9,7 @@ describe('market', () => {
       market(undefined, {})
     ).toEqual(
       {
+        orderBook: {},
         detail: {},
         isFetching: false,
         list:{
@@ -33,6 +34,7 @@ describe('market', () => {
       })
     ).toEqual(
       {
+        orderBook: {},
         detail: {},
         isFetching: true,
         list:{
@@ -55,6 +57,7 @@ describe('market', () => {
       })
     ).toEqual(
       {
+        orderBook: {},
         detail: {},
         isFetching: false,
         list:{
@@ -77,6 +80,7 @@ describe('market', () => {
       })
     ).toEqual(
       {
+        orderBook: {},
         detail: {},
         isFetching: false,
         list:{
