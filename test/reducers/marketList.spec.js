@@ -2,7 +2,8 @@ import expect from 'expect'
 import list from '../../reducers/marketList'
 import * as types from '../../constants/ActionTypes'
 
-describe('marketList reducer', () => {
+describe('reducer', () => {
+describe('marketList', () => {
   it('should handle initial state', () => {
     expect(
       list(undefined, {})
@@ -232,3 +233,4 @@ describe('marketList reducer', () => {
     )    
   })    
 })    
+})

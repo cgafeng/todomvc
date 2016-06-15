@@ -2,7 +2,8 @@ import expect from 'expect'
 import detail from '../../reducers/marketDetail'
 import * as types from '../../constants/ActionTypes'
 
-describe('marketDetail reducer', () => {
+describe('reducer', () => {
+describe('marketDetail', () => {
   it('should handle initial state', () => {
     expect(
       detail(undefined, {})
@@ -31,6 +32,7 @@ describe('marketDetail reducer', () => {
       })
     ).toEqual(
       {'btccny':{
+              market:'btccny',
               buy:"4715.0",
               high:"4798.0",
               last:"4720.0",
@@ -44,6 +46,7 @@ describe('marketDetail reducer', () => {
     expect(
       detail(
         {'btccny':{
+                market:'btccny',
                 buy:"4715.0",
                 high:"4798.0",
                 last:"4720.0",
@@ -69,6 +72,7 @@ describe('marketDetail reducer', () => {
       })
     ).toEqual(
       {'btccny':{
+              market:'btccny',
               buy:"4715.0",
               high:"4798.0",
               last:"4720.0",
@@ -82,6 +86,7 @@ describe('marketDetail reducer', () => {
     expect(
       detail(
         {'btccny':{
+                market:'btccny',
                 buy:"4715.0",
                 high:"4798.0",
                 last:"4720.0",
@@ -107,6 +112,7 @@ describe('marketDetail reducer', () => {
       })
     ).toEqual(
       {'btccny':{
+              market:'btccny',
               buy:"4715.0",
               high:"4798.0",
               last:"4720.0",
@@ -115,6 +121,7 @@ describe('marketDetail reducer', () => {
               vol:"4403.8742"
           },
        'ethcny':{
+              market:'ethcny',
               buy:"4715.0",
               high:"4798.0",
               last:"4720.0",
@@ -125,4 +132,5 @@ describe('marketDetail reducer', () => {
       }
     )    
   })  
+})
 })
