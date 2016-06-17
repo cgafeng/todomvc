@@ -9,12 +9,16 @@ import echarts from '../tools/echarts.min.js'
 class App extends Component {
   constructor(props) {
     super(props)
-    setInterval(this.updateMarket.bind(this), 30 * 1000);
+    this.interval = setInterval(this.updateMarket.bind(this), 30 * 1000);
   }
   
   componentDidMount(){
     let echartObj = echarts.init(this.refs.echartsDom);
     echartObj.showLoading();    
+  }
+  
+  componentWillUnmount(){
+    this.interval && clearInterval(this.interval);
   }
   
   updateMarket(){
