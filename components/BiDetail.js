@@ -1,12 +1,7 @@
 'use strict';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, { Component, PropTypes } from 'react'
+
 
 export default class BiDetail extends Component{
     constructor(props) {
@@ -17,38 +12,38 @@ export default class BiDetail extends Component{
     }
     
     render() {
-        const mName = this.props.market.slice(0, -3).toUpperCase()
+        //const mName = this.props.market.slice(0, -3).toUpperCase()
         return (
-            <View style={styles.BiContainer}>
-                <View style={styles.biNameContainer}>
-                    <Text style={styles.biName}>{mName}</Text>
-                </View>
-                <View style={styles.priceContainer}>
-                    <Text style={styles.biPrice}>{this.props.last}</Text>
-                </View>
-                <View style={styles.volumeContainers}>
-                    <View style={styles.volumeContainer}>
-                        <Text style={styles.volumeText}>高</Text>
-                        <Text style={styles.volumeValue}>{this.props.high}</Text>
-                    </View>
-                    <View style={styles.volumeContainer}>
-                        <Text style={styles.volumeText}>低</Text>
-                        <Text style={styles.volumeValue}>{this.props.low}</Text>
-                    </View>
-                    <View style={styles.volumeContainer}>
-                        <Text style={styles.volumeText}>量</Text>
-                        <Text style={styles.volumeValue}>{this.props.vol}</Text>
-                    </View>
-                </View>                
-            </View>
-        );
+            <div style={styles.BiContainer}>
+                <div style={styles.biNameContainer}>
+                    <label style={styles.biName}>ABC</label>
+                </div>
+                <div style={styles.priceContainer}>
+                    <label style={styles.biPrice}>7896</label>
+                </div>
+                <div style={styles.volumeContainers}>
+                    <div style={styles.volumeContainer}>
+                        <label style={styles.volumeText}>高</label>
+                        <label style={styles.volumeValue}>8765</label>
+                    </div>
+                    <div style={styles.volumeContainer}>
+                        <label style={styles.volumeText}>低</label>
+                        <label style={styles.volumeValue}>5432</label>
+                    </div>
+                    <div style={styles.volumeContainer}>
+                        <label style={styles.volumeText}>量</label>
+                        <label style={styles.volumeValue}>9525</label>
+                    </div>
+                </div>                
+            </div>
+        )
     }
     
 }
 
-const styles = StyleSheet.create({
+let styles = {
     BiContainer:{
-        flexDirection: 'row',
+        flexDirection: 'column',
         borderBottomColor: '#262B31',
         borderBottomWidth: 1,
     },
@@ -98,4 +93,4 @@ const styles = StyleSheet.create({
         color:'white',
         fontSize: 15,
     },
-});
+};

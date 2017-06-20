@@ -56,6 +56,10 @@ export function updateMarket(marketName, json) {
   return { type: types.UPDATE_MARKET,  marketName, json}
 }
 
+export function updateLiqMarket(marketName, json) {
+  return { type: types.UPDATE_MARKET,  marketName, json}
+}
+
 export function fetchMarketsDetail(markets){
   return dispatch =>{
     dispatch(marketFetchStart());
@@ -64,6 +68,22 @@ export function fetchMarketsDetail(markets){
       return fetch(url)
         .then(response => response.json())
         .then(json => dispatch(updateMarket(market, json)) )
+        .catch(err => console.log(err))
+      
+    });
+    dispatch(marketFetchFinish());
+    return Promise.all(fetchs);
+  }
+}
+
+export function fetchLiqMarketsDetail(markets){
+  return dispatch =>{
+    dispatch(marketFetchStart());
+    let fetchs = markets.map(market =>{
+      let url = 'https://api.liqui.io/api/3/ticker/'+ market;
+      return fetch(url)
+        .then(response => response.json())
+        .then(json => dispatch(updateLiqMarket(market, json)) )
         .catch(err => console.log(err))
       
     });
